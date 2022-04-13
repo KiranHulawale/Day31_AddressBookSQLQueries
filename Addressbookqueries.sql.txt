@@ -1,0 +1,32 @@
+create database addressbook;
+show databases;
+use addressbook;
+show tables;
+
+create table addressbook(firstname varchar(20),lastname varchar(20),address varchar(50),
+city varchar(20),state varchar(20),zip varchar(10),phone_number varchar(11), email varchar(50));
+
+select *from addressbook;
+
+insert into addressbook (firstname,lastname,address,city,state,zip,phone_number,email) values ('Kiran','Hulawale','Pimpri-Chinchwad','Pune',
+'MH','411027','9876543212','kiranhulawale@gmail.com' ),('Reshma','Auti','Nigdi','Pune','MH','411012','9876789870','rauti12@gmail.com')
+,('Amol','Bhore','Chikhali','Pune','MH','411033','8769095432','amolb@gmail.com'),('Sagar','Jinturkar','Gadag','Banglore','KR','422331','7896754345','sagar12@gmail.com');
+
+update addressbook set phone_number='8877908765' where firstname='Kiran';
+
+delete from addressbook where firstname='Amol';
+
+select *from addressbook where city='Pune' OR state='MH';
+
+select count(*) from addressbook where city='Banglore' and state='KR';
+
+select *from addressbook where state='MH' order by firstname;
+
+select count(*) from addressbook group by book_type;
+alter table addressBook add column book_name varchar(25), add column book_type varchar(20);
+
+update addressbook set book_name='book1' , book_type='Friends' where firstname='Kiran';
+
+update addressbook set book_name='book2' , book_type='Family' where firstname='Reshma';
+
+update addressbook set book_name='book3' , book_type='Profession' where firstname='Sagar';
